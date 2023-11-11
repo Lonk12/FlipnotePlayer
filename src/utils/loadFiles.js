@@ -10,7 +10,7 @@ export function readFileArrayBuffer(file) {
       resolve(event.target.result);
     };
     reader.onerror = event => {
-      reject({type: "fileReadError"});
+      reject({ type: "fileReadError" });
     };
     reader.readAsArrayBuffer(file);
   });
@@ -33,32 +33,32 @@ export function getFlipnoteMeta(flipnote) {
     if (!flipnote) {
       reject();
     } else {
-    const meta = flipnote.meta;
-    const thumb = GifImage.fromFlipnoteFrame(flipnote, flipnote.thumbFrameIndex);
-    const item = {
-      author: meta.current.username,
-      lock: meta.lock ? true : false,
-      src: flipnote.buffer,
-      placeholder: false,
-      ext: flipnote.format.toLowerCase(),
-      filename: meta.current.filename,
-      thumb: thumb.getUrl(),
-      note: flipnote,
-      timestamp: meta.timestamp
-    };
-    resolve(item);
+      const meta = flipnote.meta;
+      const thumb = GifImage.fromFlipnoteFrame(flipnote, flipnote.thumbFrameIndex);
+      const item = {
+        author: meta.current.username,
+        lock: meta.lock ? true : false,
+        src: flipnote.buffer,
+        placeholder: false,
+        ext: flipnote.format.toLowerCase(),
+        filename: meta.current.filename,
+        thumb: thumb.getUrl(),
+        note: flipnote,
+        timestamp: meta.timestamp
+      };
+      resolve(item);
     }
   });
 }
 
 export function loadFiles(files) {
   return Promise.all(files.map(file => readFileArrayBuffer(file)))
-  // create a parser object for each flipnote
-  .then(buffers => Promise.all(buffers.map(buffer => createParser(buffer))))
-  .then(flipnotes => Promise.all(
-    flipnotes
-    // filter out any null flipnotes (these are errors!)
-    .filter(flipnote => flipnote !== undefined)
-    .map(flipnote => getFlipnoteMeta(flipnote))
-  ))
+    // create a parser object for each flipnote
+    .then(buffers => Promise.all(buffers.map(buffer => createParser(buffer))))
+    .then(flipnotes => Promise.all(
+      flipnotes
+        // filter out any null flipnotes (these are errors!)
+        .filter(flipnote => flipnote !== undefined)
+        .map(flipnote => getFlipnoteMeta(flipnote))
+    ))
 }

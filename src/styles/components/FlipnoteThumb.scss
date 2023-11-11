@@ -1,11 +1,10 @@
 @import "../config.scss";
 
-.FlipnoteThumb {
-}
+.FlipnoteThumb {}
 
 .FlipnoteThumb__image {
   position: relative;
-  cursor: pointer;  
+  cursor: pointer;
   background-repeat: no-repeat;
   background-size: 100%;
   // preserve aspect ratio (4:3)

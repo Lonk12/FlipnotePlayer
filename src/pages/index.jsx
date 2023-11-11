@@ -28,9 +28,9 @@ export default (props) => {
         GlobalStore.update(store => {
           store.hasError = true;
           store.errorType = 'FLIPNOTE_COULD_NOT_BE_LOADED',
-          store.errorData = {
-            flipnoteSrc: src
-          };
+            store.errorData = {
+              flipnoteSrc: src
+            };
         });
       })
   }
@@ -56,26 +56,26 @@ export default (props) => {
           <h4 className="title">Upload</h4>
         </div>
         <div className="Section__body">
-          <UploadPanel onLoadFiles={ handleDrop } onLoadSrc={ loadFlipnote }/>
+          <UploadPanel onLoadFiles={handleDrop} onLoadSrc={loadFlipnote} />
         </div>
       </div>
       <div className="Section Section--main">
         <div className="Section__title">
-          <h4 className="title">{ gridMode === 'SAMPLE' ? 'Sample Flipnotes' : 'Browse Uploads' }</h4>
+          <h4 className="title">{gridMode === 'SAMPLE' ? 'Sample Flipnotes' : 'Browse Uploads'}</h4>
           <div className="Section__actions">
-            <Pagination 
-              current={ gridPage }
-              itemCount={ gridItems.length } 
-              itemsPerPage={ 12 }
-              onChange={ newPage => { GridStore.update(store => {store.page = newPage}) }}
+            <Pagination
+              current={gridPage}
+              itemCount={gridItems.length}
+              itemsPerPage={12}
+              onChange={newPage => { GridStore.update(store => { store.page = newPage }) }}
             />
           </div>
         </div>
         <div className="Section__body">
-          <FlipnoteGrid 
-            items={ gridItems }
-            page={ gridPage }
-            onSelect={ loadFlipnote }
+          <FlipnoteGrid
+            items={gridItems}
+            page={gridPage}
+            onSelect={loadFlipnote}
           />
         </div>
       </div>

@@ -1,9 +1,7 @@
 @import "../config.scss";
 
 .DetailItemList {
-  @include theme((
-    background: "background-light",
-  ));
+  @include theme((background: "background-light"));
   border-radius: 6px;
   padding: 2px 12px;
   box-shadow: 0 4px 12px -4px rgba(77, 77, 100, 0.1);
@@ -11,10 +9,7 @@
 
 .DetailItem {
   border-bottom: 1px dashed #fff;
-  @include theme((
-    color: "text-invert",
-    border-color: "background-lighter"
-  ));
+  @include theme((color: "text-invert", border-color: "background-lighter"));
   font-size: 0.9rem;
   display: flex;
   width: 100%;
@@ -52,9 +47,7 @@
 }
 
 .DetailLink {
-  @include theme((
-    background: "background-light",
-  ));
+  @include theme((background: "background-light"));
   display: flex;
   align-items: center;
   border-radius: 6px;

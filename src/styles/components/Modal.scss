@@ -11,14 +11,12 @@
   justify-content: center;
 }
 
-.ModalBackdrop.ModalBackdrop--visible {
-}
+.ModalBackdrop.ModalBackdrop--visible {}
 
 .Modal {
-  @include theme((
-    background: 'background-light',
-    color: 'text'
-  ));
+  @include theme((background: 'background-light',
+      color: 'text'
+    ));
   min-width: 320px;
   width: 390px;
   border-radius: 12px;
@@ -31,14 +29,17 @@
   opacity: 0;
   transform: scale(.9) translateY(20px);
 }
+
 .ModalBackdrop.enter-active .Modal {
   opacity: 1;
   transform: scale(1);
 }
+
 .ModalBackdrop.exit .Modal {
   opacity: 1;
   transform: scale(1);
 }
+
 .ModalBackdrop.exit-active .Modal {
   opacity: 0;
   transform: scale(.9) translateY(20px);
@@ -62,9 +63,8 @@
   .title {
     color: #fd4c6a;
   }
+
   // background: 
 }
 
-.ErrorModal__errorFile {
-
-}
+.ErrorModal__errorFile {}

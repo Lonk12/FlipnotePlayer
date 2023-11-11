@@ -30,16 +30,15 @@
 .Section {
   display: flex;
   flex-direction: column;
+
   @include breakpoint-large {
     margin: 0 12px;
   }
 }
 
-.Section--main {
-}
+.Section--main {}
 
-.Section--side {
-}
+.Section--side {}
 
 .Section__title {
   display: flex;

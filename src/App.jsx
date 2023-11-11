@@ -10,10 +10,7 @@ GlobalStore.update(store => { store.isLoading = true });
 fetch('./static/manifest.json')
   .then(res => res.json())
   .then(data => {
-    const items = data['items'].map(item => ({
-      ...item,
-      src: `./static/${item.ext}/${item.filestem}.${item.ext}`
-    }));
+    const items = data['items'].map(item => ({ ...item, src: `./static/${item.ext}/${item.filestem}.${item.ext}` }));
 
     items.map(x => x.timestamp = new Date(x.timestamp));
     items.sort((a, b) => b.timestamp - a.timestamp);
@@ -29,12 +26,12 @@ export default props => {
   const isDarkMode = useStoreState(GlobalStore, s => s.isDarkMode);
 
   return (
-    <div className={`App ${ isDarkMode ? 'theme--dark' : 'theme--light' }`}>
+    <div className={`App ${isDarkMode ? 'theme--dark' : 'theme--light'}`}>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={ Index }/>
-          <Route exact path="/view" component={ View }/>
-          <Route component={ NoMatch }/>
+          <Route exact path="/" component={Index} />
+          <Route exact path="/view" component={View} />
+          <Route component={NoMatch} />
         </Switch>
       </BrowserRouter>
     </div>

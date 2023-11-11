@@ -8,11 +8,10 @@
   border-radius: 6px;
   border-width: 1px;
   border-style: solid;
-  @include theme((
-    border-color: "background",
-    color: "text-invert",
-    background: "background-light",
-  ));
+  @include theme((border-color: "background",
+      color: "text-invert",
+      background: "background-light",
+    ));
   padding: 6px 12px;
   font-size: 0.9rem;
   box-shadow: 0 4px 12px -4px rgba(77, 77, 100, 0.1);
@@ -23,14 +22,17 @@
   opacity: 0;
   transform: scale(.9) translateY(20px);
 }
+
 .FrameCounter.enter-done {
   opacity: 1;
   transform: translateY(0);
 }
+
 .FrameCounter.exit {
   opacity: 1;
   transform: translateY(0);
 }
+
 .FrameCounter.exit-active {
   opacity: 0;
   transform: scale(.9) translateY(20px);

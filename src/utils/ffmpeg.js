@@ -17,7 +17,7 @@ export class FilterGraph {
     return this.graph.map(({ input, filter, output }, index) => {
       const inputList = Array.isArray(input) ? input : [input];
       const isLastItem = index === this.graph.length - 1;
-      return `${ inputList.map(i => `[${ i }]`).join('') }${ filter }${ isLastItem ? '' : `[${ output }]` }`;
+      return `${inputList.map(i => `[${i}]`).join('')}${filter}${isLastItem ? '' : `[${output}]`}`;
     }).join(';');
   }
 
@@ -29,7 +29,7 @@ export class FilterGraph {
   delay(input, delay, output) {
     return this.push({
       input,
-      filter: `adelay=${ delay > 0 ? delay : 1 }`,
+      filter: `adelay=${delay > 0 ? delay : 1}`,
       output
     });
   }
@@ -37,7 +37,7 @@ export class FilterGraph {
   mix(input, output) {
     return this.push({
       input: input,
-      filter: `amix=inputs=${ input.length }`,
+      filter: `amix=inputs=${input.length}`,
       output
     });
   }
@@ -45,16 +45,16 @@ export class FilterGraph {
   volume(input, volume, output) {
     return this.push({
       input,
-      filter: `volume=${ volume}`,
+      filter: `volume=${volume}`,
       output
     });
   }
 
   equalize(input, gainEntries, output) {
-    const gainEntryList = gainEntries.map(entry => `entry(${ entry[0] }\\,${ entry[1] })`);
+    const gainEntryList = gainEntries.map(entry => `entry(${entry[0]}\\,${entry[1]})`);
     return this.push({
       input,
-      filter: `firequalizer=gain_entry='${ gainEntryList.join(';') }'`,
+      filter: `firequalizer=gain_entry='${gainEntryList.join(';')}'`,
       output
     });
   }

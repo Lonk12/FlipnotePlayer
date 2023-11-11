@@ -11,17 +11,17 @@ module.exports = {
     config.module.rule('svg')
       .test(/\.(svg)(\?.*)?$/)
       .use()
-        .loader('@mapbox/svg-react-transformer-loader')
-        .options({
-          svgoPlugins: [
-            { collapseGroups: true },
-            { convertPathData: true },
-            { convertStyleToAttrs: true },
-            { removeDoctype: true },
-            { removeComments: true },
-            { removeXMLNS: true },
-            { removeDimensions: true },
-          ]
-        });
+      .loader('@mapbox/svg-react-transformer-loader')
+      .options({
+        svgoPlugins: [
+          { collapseGroups: true },
+          { convertPathData: true },
+          { convertStyleToAttrs: true },
+          { removeDoctype: true },
+          { removeComments: true },
+          { removeXMLNS: true },
+          { removeDimensions: true },
+        ]
+      });
   }
 }

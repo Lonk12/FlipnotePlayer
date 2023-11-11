@@ -1,7 +1,6 @@
 .Button {
-  @include theme((
-    background: 'background-light'
-  ));
+  @include theme((background: 'background-light'
+    ));
   // background: #fff;
   color: $primary-color;
   border: 1px solid $primary-color;

@@ -34,14 +34,14 @@ export default class flipnoteStudio {
     return fsid;
   }
 
-  static getSdCardRoute(system='twl', region='eu') {
+  static getSdCardRoute(system = 'twl', region = 'eu') {
     switch (system.toLowerCase()) {
       case 'twl':
       case 'dsi':
-        return `/private/ds/app/${ TWL_REGION_FOLDERS[region.toLowerCase()] }/`;
+        return `/private/ds/app/${TWL_REGION_FOLDERS[region.toLowerCase()]}/`;
       case '3ds':
       case 'ctr':
-        return `/private/Nintendo 3DS/app/${ CTR_REGION_FOLDERS[region.toLowerCase()] }/`;
+        return `/private/Nintendo 3DS/app/${CTR_REGION_FOLDERS[region.toLowerCase()]}/`;
     }
   }
 

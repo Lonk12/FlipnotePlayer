@@ -1,21 +1,21 @@
-const KAERU_URL_REGEX = /https?:\/\/gallery.kaeru.world\/memo\/([0-9a-z]{28})/; 
+const KAERU_URL_REGEX = /https?:\/\/gallery.kaeru.world\/memo\/([0-9a-z]{28})/;
 
 export class kaeruGallery {
 
   static getFlipnoteUrl(fsid, filename) {
-    return `https://gallery.kaeru.world/memo/${ filename }`;
+    return `https://gallery.kaeru.world/memo/${filename}`;
   }
 
   static getFileFromFlipnoteUrl(flipnoteUrl) {
     if (KAERU_URL_REGEX.test(flipnoteUrl)) {
-      return flipnoteUrl.replace(KAERU_URL_REGEX, (match, filename) => (`https://cdn.kaeru.world/memo/kwz/${ filename }.kwz`));
+      return flipnoteUrl.replace(KAERU_URL_REGEX, (match, filename) => (`https://cdn.kaeru.world/memo/kwz/${filename}.kwz`));
     }
     return null;
   }
 
   static checkFlipnoteExists(fsid, filename) {
     return new Promise((resolve, reject) => {
-      fetch(`https://gallery.kaeru.world/api/v0/memo/${ filename }`)
+      fetch(`https://gallery.kaeru.world/api/v0/memo/${filename}`)
         .then(res => res.json())
         .then(data => {
           if (data['code'] === 200) {
@@ -27,7 +27,7 @@ export class kaeruGallery {
         })
         .catch(reject);
     });
-    
+
   }
 
 }
@@ -38,19 +38,19 @@ const IPG_URL_REGEX = /https?:\/\/(?:www.)?ipgflip.xyz\/watch\/([0-9A-F]{6}_[0-9
 export class ipgFlip {
 
   static getFlipnoteUrl(fsid, filename) {
-    return `https://ipgflip.xyz/watch/${ filename }`;
+    return `https://ipgflip.xyz/watch/${filename}`;
   }
 
   static getFileFromFlipnoteUrl(flipnoteUrl) {
     if (IPG_URL_REGEX.test(flipnoteUrl)) {
-      return flipnoteUrl.replace(IPG_URL_REGEX, (match, filename) => (`https://content.ipgflip.xyz/movie/${ filename }.ppm`));
+      return flipnoteUrl.replace(IPG_URL_REGEX, (match, filename) => (`https://content.ipgflip.xyz/movie/${filename}.ppm`));
     }
     return null;
   }
 
   static checkFlipnoteExists(fsid, filename) {
     return new Promise((resolve, reject) => {
-      fetch(`https://api.ipgflip.xyz/flipnote/${ filename }`)
+      fetch(`https://api.ipgflip.xyz/flipnote/${filename}`)
         .then(res => res.json())
         .then(data => {
           if (data['success'] === true) {
@@ -68,7 +68,7 @@ export class ipgFlip {
 export class sudomemo {
 
   static getFlipnoteUrl(fsid, filename) {
-    return `https://www.sudomemo.net/watch/${ filename }`;
+    return `https://www.sudomemo.net/watch/${filename}`;
   }
 
   static getFileFromFlipnoteUrl(flipnoteUrl) {
@@ -87,7 +87,7 @@ export class sudomemo {
         tempImage = null;
         reject(err);
       };
-      tempImage.src = `https://www.sudomemo.net/theatre_assets/images/dynamic/thumbframe/${ fsid }/${ filename }.png?size=s`;
+      tempImage.src = `https://www.sudomemo.net/theatre_assets/images/dynamic/thumbframe/${fsid}/${filename}.png?size=s`;
     });
   }
 }
@@ -95,7 +95,7 @@ export class sudomemo {
 export function getFileFromFlipnoteUrl(flipnoteUrl) {
   const supportedServices = [kaeruGallery, ipgFlip];
   for (const service of supportedServices) {
-    const url = service.getFileFromFlipnoteUrl(flipnoteUrl); 
+    const url = service.getFileFromFlipnoteUrl(flipnoteUrl);
     if (url) {
       return url
     }

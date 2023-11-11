@@ -25,7 +25,7 @@ Promise.all(meta['items'].map(item => {
         timestamp: meta.timestamp
       }
     });
-  }
+}
 )).then(manifest => {
   const manifestPath = path.resolve(basePath, 'manifest.json');
   fs.writeFileSync(manifestPath, JSON.stringify({

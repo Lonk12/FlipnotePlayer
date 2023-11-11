@@ -4,7 +4,7 @@
   flex-direction: row;
   display: flex;
   padding: 24px 0;
-  
+
   @include breakpoint-medium {
     padding: 64px 0;
   }
@@ -32,13 +32,13 @@
 }
 
 .Header__title {
-  @include theme((
-    color: "text",
-  ));
+  @include theme((color: "text",
+    ));
   font-size: 1rem;
   line-height: 1em;
 
-  h1, h2 {
+  h1,
+  h2 {
     font-size: inherit;
     margin: 0;
     font-weight: normal;
@@ -63,14 +63,17 @@
   opacity: 0;
   transform: scale(.5);
 }
+
 .Header__loadIndicator.enter-active {
   opacity: 1;
   transform: scale(1);
 }
+
 .Header__loadIndicator.exit {
   opacity: 1;
   transform: scale(1);
 }
+
 .Header__loadIndicator.exit-active {
   opacity: 0;
   transform: scale(.5)

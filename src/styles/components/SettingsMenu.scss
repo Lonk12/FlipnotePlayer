@@ -4,10 +4,9 @@
   border-radius: 6px;
   border-width: 1px;
   border-style: solid;
-  @include theme((
-    border-color: "background",
-    background: "background-light",
-  ));
+  @include theme((border-color: "background",
+      background: "background-light",
+    ));
   position: absolute;
   bottom: 12px;
   left: 12px;
@@ -20,14 +19,17 @@
   opacity: 0;
   transform: scale(.9) translateY(20px);
 }
+
 .SettingsMenu.enter-done {
   opacity: 1;
   transform: translateY(0);
 }
+
 .SettingsMenu.exit {
   opacity: 1;
   transform: translateY(0);
 }
+
 .SettingsMenu.exit-active {
   opacity: 0;
   transform: scale(.9) translateY(20px);

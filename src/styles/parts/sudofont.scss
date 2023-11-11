@@ -3,7 +3,11 @@ $sf-font-name: "sudofont" !default;
 $sf-font-size-base: 24px !default;
 $sf-line-height-base: 1 !default;
 $sf-font-path: "../fonts/" !default;
-$sf-icon-sizes: (2, 3, 4, 5) !default;
+$sf-icon-sizes: (
+  2,
+  3,
+  4,
+  5) !default;
 
 $sf-map: (
   button-a: e000,
@@ -103,19 +107,21 @@ $sf-map: (
   font-family: "#{$sf-font-family}";
   src: url('#{$sf-font-path}#{$sf-font-name}.eot');
   src: url('#{$sf-font-path}#{$sf-font-name}.eot?#iefix') format('eot'),
-    url('#{$sf-font-path}#{$sf-font-name}.woff2') format('woff2'),
-    url('#{$sf-font-path}#{$sf-font-name}.woff') format('woff'),
-    url('#{$sf-font-path}#{$sf-font-name}.ttf') format('truetype');
+  url('#{$sf-font-path}#{$sf-font-name}.woff2') format('woff2'),
+  url('#{$sf-font-path}#{$sf-font-name}.woff') format('woff'),
+  url('#{$sf-font-path}#{$sf-font-name}.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   unicode-range: U+E000-E013, U+E015-E01C, U+E028;
 }
 
-@function sf-get-icon($name){
+@function sf-get-icon($name) {
   @if map-has-key($sf-map, $name) {
     $code: map-get($sf-map, $name);
     @return #{"\"\\"}#{$code + "\""};
-  } @else {
+  }
+
+  @else {
     @error "sudofont: invalid icon name: `#{$name}`.";
   }
 }
@@ -139,6 +145,7 @@ $sf-map: (
     line-height: 0.75em;
     vertical-align: -15%;
   }
+
   .sf--fw {
     width: 1.2857142857142858em;
     text-align: center;

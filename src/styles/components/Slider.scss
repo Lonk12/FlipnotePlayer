@@ -8,9 +8,7 @@
 }
 
 .Slider__bar {
-  @include theme((
-    background: "background-lighter",
-  ));
+  @include theme((background: "background-lighter"));
   position: relative;
   width: 100%;
   height: 5px;
@@ -29,9 +27,7 @@
 
 .Slider__handle {
   border: solid 3px #fff;
-  @include theme((
-    border-color: "background",
-  ));
+  @include theme((border-color: "background"));
   background-color: $primary-color;
   position: absolute;
   margin-left: -8px;

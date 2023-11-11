@@ -2,9 +2,7 @@
 
 .Switch {
   border: 2px solid $primary-color;
-  @include theme((
-    border-color: 'background-lighter'
-  ));
+  @include theme((border-color: 'background-lighter'));
   width: 32px;
   height: 18px;
   border-radius: 9px;
@@ -17,9 +15,7 @@
 .Switch__toggle {
   background: #fff;
   border: 2px solid $primary-color;
-  @include theme((
-    border-color: 'background-lighter'
-  ));
+  @include theme((border-color: 'background-lighter'));
   width: 18px;
   height: 18px;
   top: -2px;
