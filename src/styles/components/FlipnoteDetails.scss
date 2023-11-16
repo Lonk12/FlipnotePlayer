@@ -1,10 +1,10 @@
 @import "../config.scss";
 
 .DetailItemList {
-  @include theme((background: "background-light"));
+  @include theme((background: "background-light",));
   border-radius: 6px;
   padding: 2px 12px;
-  box-shadow: 0 4px 12px -4px rgba(77, 77, 100, 0.1);
+  box-shadow: 0px 4px 12px -4px rgba(77, 77, 100, 0.1);
 }
 
 .DetailItem {
@@ -34,10 +34,9 @@
 }
 
 .DetailItem.DetailItem--links {
-
   & .DetailItem__value {
     line-height: inherit;
-    margin: 0;
+    margin: 0px;
     list-style-type: none;
   }
 
@@ -54,8 +53,8 @@
   padding: 12px;
   padding-right: 20px;
   margin-top: 16px;
-  border: 0;
-  box-shadow: 0 4px 12px -4px rgba(77, 77, 100, 0.1);
+  border: 0px;
+  box-shadow: 0px 4px 12px -4px rgba(77, 77, 100, 0.1);
 }
 
 .DetailLink__icon {

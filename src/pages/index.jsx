@@ -6,6 +6,7 @@ import FlipnoteGrid from '@/components/FlipnoteGrid';
 import Pagination from '@/components/Pagination';
 import UploadPanel from '@/components/UploadPanel';
 import { loadFiles } from '@/utils/loadFiles';
+
 import '@/styles/pages/index.scss';
 
 export default (props) => {
@@ -20,7 +21,10 @@ export default (props) => {
     startLoading();
     parseSource(src)
       .then(note => {
-        PlayerStore.update(store => { store.src = src; store.note = note; });
+        PlayerStore.update(store => {
+           store.src = src; 
+           store.note = note; 
+          });
         props.history.push('/view');
         stopLoading();
       }).catch(err => {
@@ -38,9 +42,12 @@ export default (props) => {
   const handleDrop = (files) => {
     if (files.length == 1) {
       loadFlipnote(files[0]);
-    } else {
+    }
+    
+    else {
       startLoading();
       GridStore.update(store => { store.items = []; });
+      
       loadFiles(files).then(items => {
         items.sort((a, b) => b.timestamp - a.timestamp);
         GridStore.update(store => { store.items = items; store.mode = 'UPLOADS'; store.page = 0; });

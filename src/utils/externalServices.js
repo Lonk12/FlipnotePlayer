@@ -12,31 +12,30 @@ export class kaeruGallery {
     }
     return null;
   }
-
+  
   static checkFlipnoteExists(fsid, filename) {
     return new Promise((resolve, reject) => {
       fetch(`https://gallery.kaeru.world/api/v0/memo/${filename}`)
-        .then(res => res.json())
-        .then(data => {
-          if (data['code'] === 200) {
-            const link = data['memo']['link'].filter(link => link['rel'] === 'self')[0];
-            resolve(link['href']);
-          } else {
-            reject();
-          }
-        })
-        .catch(reject);
+      .then(res => res.json())
+      .then(data => {
+        if (data['code'] === 200) {
+          const link = data['memo']['link'].filter(link => link['rel'] === 'self')[0];
+          resolve(link['href']);
+        }
+        
+        else {
+          reject();
+        }
+      })
+      .catch(reject);
     });
-
   }
-
 }
-
 
 const IPG_URL_REGEX = /https?:\/\/(?:www.)?ipgflip.xyz\/watch\/([0-9A-F]{6}_[0-9A-F]{13}_[0-9]{3})/;
 
 export class ipgFlip {
-
+  
   static getFlipnoteUrl(fsid, filename) {
     return `https://ipgflip.xyz/watch/${filename}`;
   }
@@ -51,18 +50,19 @@ export class ipgFlip {
   static checkFlipnoteExists(fsid, filename) {
     return new Promise((resolve, reject) => {
       fetch(`https://api.ipgflip.xyz/flipnote/${filename}`)
-        .then(res => res.json())
-        .then(data => {
-          if (data['success'] === true) {
-            resolve(ipgFlip.getFlipnoteUrl(fsid, filename));
-          } else {
-            reject();
-          }
-        })
-        .catch(reject);
+      .then(res => res.json())
+      .then(data => {
+        if (data['success'] === true) {
+          resolve(ipgFlip.getFlipnoteUrl(fsid, filename));
+        }
+        
+        else {
+          reject();
+        }
+      })
+      .catch(reject);
     });
   }
-
 }
 
 export class sudomemo {
@@ -83,6 +83,7 @@ export class sudomemo {
         tempImage = null;
         resolve(sudomemo.getFlipnoteUrl(fsid, filename));
       }
+
       tempImage.onerror = (err) => {
         tempImage = null;
         reject(err);

@@ -39,15 +39,15 @@ export default function Slider(props) {
   const progress = ((value - props.min) / (props.max - props.min)) * 100;
 
   return (
-    <div 
-      ref={ root }
-      className={ `Slider ${ props.className }` }
-      onMouseDown={ handleMouseDown }
-      onTouchStart={ handleMouseDown }
+    <div
+      ref={root}
+      className={`Slider ${props.className}`}
+      onMouseDown={handleMouseDown}
+      onTouchStart={handleMouseDown}
     >
       <div className="Slider__bar">
-        <div className="Slider__progress" style={{ left: 0, width: `${ progress }%` }}></div>
-        <div className="Slider__handle" style={{ left: `${ progress }%` }}></div>
+        <div className="Slider__progress" style={{ left: 0, width: `${progress}%` }}></div>
+        <div className="Slider__handle" style={{ left: `${progress}%` }}></div>
       </div>
     </div>
   );
@@ -57,7 +57,7 @@ Slider.defaultProps = {
   min: 0,
   max: 100,
   value: 0,
-  onChange: function() {},
-  onBeforeChange: function() {},
-  onAfterChange: function() {},
+  onChange: function () { },
+  onBeforeChange: function () { },
+  onAfterChange: function () { },
 }

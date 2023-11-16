@@ -10,15 +10,15 @@ const FlipnoteGrid = ({ page, items, itemsPerPage, onSelect }) => {
 
   return (
     <div className="FlipnoteGrid">
-      { hasItems &&
+      {hasItems &&
         pageItems.map((item, index) => (
-          <FlipnoteThumb key={index} {...item} onSelect={onSelect}/>
+          <FlipnoteThumb key={index} {...item} onSelect={onSelect} />
         ))
       }
-      { 
+      {
         !hasItems &&
         pageItems.map((_, index) => (
-          <FlipnoteThumb key={index} placeholder={true}/>
+          <FlipnoteThumb key={index} placeholder={true} />
         ))
       }
     </div>
@@ -26,7 +26,7 @@ const FlipnoteGrid = ({ page, items, itemsPerPage, onSelect }) => {
 }
 
 FlipnoteGrid.defaultProps = {
-  onSelect: function(){},
+  onSelect: function () { },
   items: null,
   page: 0,
   itemsPerPage: 12,

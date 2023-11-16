@@ -33,14 +33,14 @@ export default (props) => {
         <div className="Section__title">
           {playerNote && <h4 className="title">Flipnote by {playerNote.meta.current.username}</h4>}
           <div className="Section__actions">
-            <div className="Button Button--inline Button--nobg" onClick={() => { setShowConversionModal(true) }}>Convert</div>
+            <div className="Button Button--inline Button--nobg" onClick={() => {setShowConversionModal(true)}}>Convert</div>
           </div>
         </div>
         <div className="Section__body">
           <FlipnoteDetails />
         </div>
       </div>
-      <ConversionModal isVisible={showConversionModal} onHide={() => { setShowConversionModal(false) }} />
+      <ConversionModal isVisible={showConversionModal} onHide={() => {setShowConversionModal(false)}} />
     </Layout>
   );
 }

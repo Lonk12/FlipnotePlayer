@@ -4,9 +4,7 @@
   border-radius: 6px;
   border-width: 1px;
   border-style: solid;
-  @include theme((border-color: "background",
-      background: "background-light",
-    ));
+  @include theme((border-color: "background", background: "background-light"));
   position: absolute;
   bottom: 12px;
   left: 12px;

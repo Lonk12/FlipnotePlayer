@@ -3,10 +3,10 @@
 .Header {
   flex-direction: row;
   display: flex;
-  padding: 24px 0;
+  padding: 24px 0px;
 
   @include breakpoint-medium {
-    padding: 64px 0;
+    padding: 64px 0px;
   }
 }
 
@@ -32,15 +32,13 @@
 }
 
 .Header__title {
-  @include theme((color: "text",
-    ));
+  @include theme((color: "text"));
   font-size: 1rem;
   line-height: 1em;
 
-  h1,
-  h2 {
+  h1, h2 {
     font-size: inherit;
-    margin: 0;
+    margin: 0px;
     font-weight: normal;
   }
 }
@@ -50,18 +48,18 @@
 }
 
 .Header a {
-  border: 0;
+  border: 0px;
   color: inherit !important;
 }
 
 .Header__loadIndicator {
-  margin: 0 8px;
+  margin: 0px 8px;
   transition: transform 200ms, opacity 200ms;
 }
 
 .Header__loadIndicator.enter {
   opacity: 0;
-  transform: scale(.5);
+  transform: scale(0.5);
 }
 
 .Header__loadIndicator.enter-active {
@@ -76,5 +74,5 @@
 
 .Header__loadIndicator.exit-active {
   opacity: 0;
-  transform: scale(.5)
+  transform: scale(0.5)
 }

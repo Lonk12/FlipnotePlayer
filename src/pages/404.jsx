@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
+
 import '@/styles/pages/404.scss';
 
 export default (props) => (

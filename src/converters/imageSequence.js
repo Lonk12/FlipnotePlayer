@@ -20,17 +20,18 @@ export default class ImageSequenceConverter {
       for (let frameIndex = 0; frameIndex < flipnote.frameCount; frameIndex++) {
         const gif = GifImage.fromFlipnoteFrame(flipnote, frameIndex);
         const blob = gif.getBlob();
-        this.zip.file(`${ frameIndex.toString().padStart(3, '0') }.gif`, blob);
+        this.zip.file(`${frameIndex.toString().padStart(3, '0')}.gif`, blob);
       }
     }
+    
     else if (this.format === 'png' || this.format === 'jpeg') {
       const canvas = document.createElement('canvas');
       const player = new Player(canvas, flipnote.width, flipnote.height);
       player.openNote(flipnote);
       for (let frameIndex = 0; frameIndex < flipnote.frameCount; frameIndex++) {
         player.setCurrentFrame(frameIndex);
-        const dataUri = canvas.toDataURL(`image/${ this.format }`).split(',')[1];
-        this.zip.file(`${ frameIndex.toString().padStart(3, '0') }.${ this.format }`, dataUri, { base64:true });
+        const dataUri = canvas.toDataURL(`image/${this.format}`).split(',')[1];
+        this.zip.file(`${frameIndex.toString().padStart(3, '0')}.${this.format}`, dataUri, { base64: true });
       }
     }
     return this;
@@ -38,9 +39,9 @@ export default class ImageSequenceConverter {
 
   saveAs(filename) {
     this.zip.generateAsync({ type: 'blob' })
-    .then(blob => {
-      saveAs(blob, filename);
-    });
+      .then(blob => {
+        saveAs(blob, filename);
+      });
   }
 
 }

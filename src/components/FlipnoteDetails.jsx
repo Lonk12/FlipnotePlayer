@@ -30,75 +30,76 @@ export default (props) => {
     if (playerNote.type === 'PPM') {
       externalServices.ipgFlip.checkFlipnoteExists(meta.current.fsid, meta.current.filename)
         .then(setIpgFlipUrl)
-        .catch(err => {});
+        .catch(err => { });
       externalServices.sudomemo.checkFlipnoteExists(meta.current.fsid, meta.current.filename)
         .then(setSudomemoUrl)
-        .catch(err => {});
-    } 
+        .catch(err => { });
+    }
+    
     else if (playerNote.type === 'KWZ') {
       externalServices.kaeruGallery.checkFlipnoteExists(meta.current.fsid, meta.current.filename)
         .then(setKaeruGalleryUrl)
-        .catch(err => {});
+        .catch(err => { });
     }
   }, [playerNote]);
-  
-  
+
+
   return (
     <div className="FlipnoteDetails">
       <div className="DetailItemList">
         <div className="DetailItem">
           <span className="DetailItem__title">Created:</span>
-          <span className="DetailItem__value">{ meta.timestamp.toLocaleDateString() }</span>
+          <span className="DetailItem__value">{meta.timestamp.toLocaleDateString()}</span>
         </div>
         <div className="DetailItem">
           <span className="DetailItem__title">Frames:</span>
-          <span className="DetailItem__value">{ meta.frameCount }</span>
+          <span className="DetailItem__value">{meta.frameCount}</span>
         </div>
         <div className="DetailItem">
           <span className="DetailItem__title">Frame Rate:</span>
-          <span className="DetailItem__value">{ playerNote.framerate } FPS</span>
+          <span className="DetailItem__value">{playerNote.framerate} FPS</span>
         </div>
         <div className="DetailItem">
           <span className="DetailItem__title">Filesize:</span>
-          <span className="DetailItem__value">{ format.byteCount(playerNote.buffer.byteLength) }</span>
+          <span className="DetailItem__value">{format.byteCount(playerNote.buffer.byteLength)}</span>
         </div>
         <div className="DetailItem">
-            <span className="DetailItem__title">Author ID:</span>
-            <span className="DetailItem__value">{ meta.current.fsid }</span>
-          </div>
-        { playerNote.format === 'PPM' && (
+          <span className="DetailItem__title">Author ID:</span>
+          <span className="DetailItem__value">{meta.current.fsid}</span>
+        </div>
+        {playerNote.format === 'PPM' && (
           <div className="DetailItem">
             <span className="DetailItem__title">Region:</span>
-            <span className="DetailItem__value">{ flipnoteStudio.getFsidRegion(meta.current.fsid) }</span>
+            <span className="DetailItem__value">{flipnoteStudio.getFsidRegion(meta.current.fsid)}</span>
           </div>
         )}
       </div>
-      { kaeruGalleryUrl && (
-      <a href={ kaeruGalleryUrl } target="blank" className="DetailLink DetailLink--kaeruGallery">
-        <KaeruGallerySvg className="DetailLink__icon"/>
-        <div className="DetailLink__title">
-          View this Flipnote on Kaeru Gallery
-        </div>
-        <Icon icon="externalService" disabled={true}></Icon>
-      </a>
+      {kaeruGalleryUrl && (
+        <a href={kaeruGalleryUrl} target="blank" className="DetailLink DetailLink--kaeruGallery">
+          <KaeruGallerySvg className="DetailLink__icon" />
+          <div className="DetailLink__title">
+            View this Flipnote on Kaeru Gallery
+          </div>
+          <Icon icon="externalService" disabled={true}></Icon>
+        </a>
       )}
-      { ipgFlipUrl && (
-      <a href={ ipgFlipUrl } target="blank" className="DetailLink DetailLink--ipgFlip">
-        <IpgFlipSvg className="DetailLink__icon"/>
-        <div className="DetailLink__title">
-          View this Flipnote on IPGFlip
-        </div>
-        <Icon icon="externalService" disabled={true}></Icon>
-      </a>
+      {ipgFlipUrl && (
+        <a href={ipgFlipUrl} target="blank" className="DetailLink DetailLink--ipgFlip">
+          <IpgFlipSvg className="DetailLink__icon" />
+          <div className="DetailLink__title">
+            View this Flipnote on IPGFlip
+          </div>
+          <Icon icon="externalService" disabled={true}></Icon>
+        </a>
       )}
-      { sudomemoUrl && (
-      <a href={ sudomemoUrl } target="blank" className="DetailLink DetailLink--sudomemo">
-        <SudomemoFoxSvg className="DetailLink__icon"/>
-        <div className="DetailLink__title">
-          View this Flipnote on Sudomemo
-        </div>
-        <Icon icon="externalService" disabled={true}></Icon>
-      </a>
+      {sudomemoUrl && (
+        <a href={sudomemoUrl} target="blank" className="DetailLink DetailLink--sudomemo">
+          <SudomemoFoxSvg className="DetailLink__icon" />
+          <div className="DetailLink__title">
+            View this Flipnote on Sudomemo
+          </div>
+          <Icon icon="externalService" disabled={true}></Icon>
+        </a>
       )}
     </div>
   );

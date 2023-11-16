@@ -3,27 +3,27 @@ import Icon from '@/components/Icon';
 
 const FlipnoteThumb = ({ placeholder, ext, src, thumb, author, onSelect, lock, timestamp }) => (
   <div className="FlipnoteThumb" onClick={(e) => { onSelect(src) }}>
-    <div className="FlipnoteThumb__image" style={{ "backgroundImage": `url(${ thumb })` }}>
-      { ext && (
-        <span className="FlipnoteThumb__type">{ ext === "ppm" ? "DSi" : "3DS" }</span>
+    <div className="FlipnoteThumb__image" style={{ "backgroundImage": `url(${thumb})` }}>
+      {ext && (
+        <span className="FlipnoteThumb__type">{ext === "ppm" ? "DSi" : "3DS"}</span>
       )}
-      { placeholder && (
+      {placeholder && (
         <div className="FlipnoteThumb__placeholder">
-          <Icon icon="loader" spin={ true }/>
+          <Icon icon="loader" spin={true} />
         </div>
       )}
     </div>
     <div className="FlipnoteThumb__info">
-      <span className="FlipnoteThumb__author">{ author }</span>
+      <span className="FlipnoteThumb__author">{author}</span>
       <span className="FlipnoteThumb__date">
-          { timestamp === undefined ? "" : timestamp.toLocaleDateString() }
+        {timestamp === undefined ? "" : timestamp.toLocaleDateString()}
       </span>
     </div>
   </div>
 )
 
 FlipnoteThumb.defaultProps = {
-  onSelect: function(){},
+  onSelect: function () { },
   placeholder: false,
   ext: "",
   lock: false,
@@ -33,4 +33,3 @@ FlipnoteThumb.defaultProps = {
 }
 
 export default FlipnoteThumb;
-

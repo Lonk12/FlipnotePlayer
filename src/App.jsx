@@ -5,11 +5,9 @@ import Index from '@/pages/index';
 import View from '@/pages/view';
 import NoMatch from '@/pages/404';
 
-GlobalStore.update(store => { store.isLoading = true });
+GlobalStore.update(store => {store.isLoading = true});
 
-fetch('./static/manifest.json')
-  .then(res => res.json())
-  .then(data => {
+fetch('./static/manifest.json').then(res => res.json()).then(data => {
     const items = data['items'].map(item => ({ ...item, src: `./static/${item.ext}/${item.filestem}.${item.ext}` }));
 
     items.map(x => x.timestamp = new Date(x.timestamp));
@@ -19,6 +17,7 @@ fetch('./static/manifest.json')
       store.samples = items;
       store.items = items;
     });
+
     GlobalStore.update(store => { store.isLoading = false });
   });
 

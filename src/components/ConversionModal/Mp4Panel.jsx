@@ -10,7 +10,7 @@ export default function Mp4Panel({ flipnote }) {
   const [videoCompression, setVideoCompression] = useState('fast');
   const [videoScale, setVideoScale] = useState('2');
   const [audioEq, setAudioEq] = useState(true);
-  const [filename, setFilename] = useState(`${ flipnote.meta.current.filename }.mp4`);
+  const [filename, setFilename] = useState(`${flipnote.meta.current.filename}.mp4`);
 
   function convert(flipnote) {
     import('@/converters/mp4')
@@ -53,11 +53,11 @@ export default function Mp4Panel({ flipnote }) {
       <div className="FormGroup">
         <div className="FormItem">
           <label htmlFor="quality">Compression</label>
-          <select 
+          <select
             id="quality"
             className="Select"
-            value={ videoCompression } 
-            onChange={ e => setVideoCompression(event.target.value) }
+            value={videoCompression}
+            onChange={e => setVideoCompression(event.target.value)}
           >
             <option key="fast" value="fast">Fast</option>
             <option key="medium" value="medium">Medium</option>
@@ -66,11 +66,11 @@ export default function Mp4Panel({ flipnote }) {
         </div>
         <div className="FormItem">
           <label htmlFor="scale">Video Scale</label>
-          <select 
+          <select
             id="scale"
             className="Select"
-            value={ videoScale }
-            onChange={ e => setVideoScale(event.target.value) }
+            value={videoScale}
+            onChange={e => setVideoScale(event.target.value)}
           >
             <option key="1" value="1">1x</option>
             <option key="2" value="2">2x</option>
@@ -79,26 +79,26 @@ export default function Mp4Panel({ flipnote }) {
         </div>
         <div className="FormItem">
           <label htmlFor="">Enhance Audio</label>
-          <Switch on={ audioEq } className="Switch--large" onClick={ e => { setAudioEq(!audioEq) } }></Switch>
+          <Switch on={audioEq} className="Switch--large" onClick={e => { setAudioEq(!audioEq) }}></Switch>
         </div>
       </div>
       <div className="FormGroup">
         <div className="FormItem FormItem--flex3">
           <label htmlFor="filename">Output Filename</label>
-          <input 
+          <input
             className="Input"
             id="filename"
             type="text"
             placeholder="Video Filename"
-            value={ filename } 
-            onChange={ (e) => { setFilename(e.target.value)} }
+            value={filename}
+            onChange={(e) => { setFilename(e.target.value) }}
           />
         </div>
         <div className="FormItem">
-          <div className="Button Button--inline" onClick={ () => { convert(flipnote) } }>Convert</div>
+          <div className="Button Button--inline" onClick={() => { convert(flipnote) }}>Convert</div>
         </div>
       </div>
-      <ProgressMeter isActive={ isConverting } percent={ progress } status={ status }/>
+      <ProgressMeter isActive={isConverting} percent={progress} status={status} />
     </div>
   );
 }

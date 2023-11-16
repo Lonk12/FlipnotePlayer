@@ -6,12 +6,11 @@
   line-height: 2em;
   padding: 6px 8px;
   font-size: 0.9rem;
-  @include theme((color: "text-invert",
-    ));
+
+  @include theme((color: "text-invert"));
 
   &:hover {
-    @include theme((background: "background",
-      ));
+    @include theme((background: "background"));
   }
 
   &:first-of-type {
@@ -40,13 +39,11 @@
   margin-top: -2px;
 
   .Slider__handle {
-    @include theme((border-color: "background-light",
-      ));
+    @include theme((border-color: "background-light"));
     transition: none;
 
     .SettingsMenuItem:hover & {
-      @include theme((border-color: "background",
-        ));
+      @include theme((border-color: "background"));
       transition: none;
     }
   }

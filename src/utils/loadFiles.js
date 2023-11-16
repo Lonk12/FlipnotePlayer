@@ -1,30 +1,28 @@
-import {
-  parseSource,
-  GifImage
-} from 'flipnote.js';
+import {parseSource, GifImage} from 'flipnote.js';
 
 export function readFileArrayBuffer(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
+
     reader.onload = event => {
       resolve(event.target.result);
     };
+    
     reader.onerror = event => {
       reject({ type: "fileReadError" });
     };
+
     reader.readAsArrayBuffer(file);
   });
 }
 
 export function createParser(arrayBuffer) {
   return new Promise((resolve, reject) => {
-    parseSource(arrayBuffer)
-      .then((parser) => {
-        resolve(parser);
-      })
-      .catch(() => {
-        resolve(undefined);
-      })
+    parseSource(arrayBuffer).then((parser) => {
+      resolve(parser);
+    }).catch(() => {
+      resolve(undefined);
+    })
   });
 }
 
@@ -32,7 +30,9 @@ export function getFlipnoteMeta(flipnote) {
   return new Promise((resolve, reject) => {
     if (!flipnote) {
       reject();
-    } else {
+    }
+    
+    else {
       const meta = flipnote.meta;
       const thumb = GifImage.fromFlipnoteFrame(flipnote, flipnote.thumbFrameIndex);
       const item = {
@@ -51,14 +51,10 @@ export function getFlipnoteMeta(flipnote) {
   });
 }
 
-export function loadFiles(files) {
-  return Promise.all(files.map(file => readFileArrayBuffer(file)))
-    // create a parser object for each flipnote
-    .then(buffers => Promise.all(buffers.map(buffer => createParser(buffer))))
-    .then(flipnotes => Promise.all(
-      flipnotes
-        // filter out any null flipnotes (these are errors!)
-        .filter(flipnote => flipnote !== undefined)
-        .map(flipnote => getFlipnoteMeta(flipnote))
-    ))
+export async function loadFiles(files) {
+  //Create a parser object for each flipnote
+  const buffers = await Promise.all(files.map(file => readFileArrayBuffer(file)));
+  const flipnotes = await Promise.all(buffers.map(buffer => createParser(buffer)));
+  //Filter out any null flipnotes (these are errors!)
+  return await Promise.all(flipnotes.filter(flipnote => flipnote !== undefined).map(flipnote_1 => getFlipnoteMeta(flipnote_1)));
 }

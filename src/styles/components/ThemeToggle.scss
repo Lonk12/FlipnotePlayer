@@ -37,14 +37,14 @@
 
   .ThemeToggle__circle.ThemeToggle__circle--dark {
     z-index: 1;
-    transform: translateX(0);
+    transform: translateX(0px);
   }
 }
 
 .ThemeToggle--theme-is-light {
   .ThemeToggle__circle.ThemeToggle__circle--light {
     z-index: 1;
-    transform: translateX(0);
+    transform: translateX(0px);
   }
 
   .ThemeToggle__circle.ThemeToggle__circle--dark {

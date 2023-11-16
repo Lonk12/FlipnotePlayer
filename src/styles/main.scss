@@ -10,7 +10,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   // letter-spacing: .015em;
-  font-smoothing: antialiased;
+  font-smooth: auto;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -webkit-text-rendering: optimizeLegibility;
@@ -30,12 +30,7 @@ body {
   }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   color: inherit;
   line-height: 1.5;
   font-weight: bold;

@@ -13,22 +13,22 @@ export default function ConversionModal({ isVisible, onHide }) {
   const playerNote = useStoreState(PlayerStore, store => store.note);
 
   return (
-    <Modal 
+    <Modal
       title="Convert Flipnote"
       className="ConversionModal"
-      isVisible={ isVisible }
-      isBackdropVisible={ true }
-      onHide={ onHide }
+      isVisible={isVisible}
+      isBackdropVisible={true}
+      onHide={onHide}
     >
       <div className="ConversionModelForm">
         <div className="ConversionModelForm--select">
           <div className="FormItem">
             <label htmlFor="format">Format</label>
-            <select 
+            <select
               id="format"
               className="Select"
-              value={ activeConverter } 
-              onChange={ e => setActiveConverter(event.target.value) }
+              value={activeConverter}
+              onChange={e => setActiveConverter(event.target.value)}
             >
               <option key="mp4" value="mp4">MP4</option>
               <option key="gif" value="gif">GIF</option>
@@ -37,14 +37,14 @@ export default function ConversionModal({ isVisible, onHide }) {
           </div>
         </div>
         <div className="ConversionModelForm--main">
-          { activeConverter === 'mp4' && (
-            <Mp4Panel flipnote={ playerNote }/>
+          {activeConverter === 'mp4' && (
+            <Mp4Panel flipnote={playerNote} />
           )}
-          { activeConverter === 'gif' && (
-            <GifPanel flipnote={ playerNote }/>
+          {activeConverter === 'gif' && (
+            <GifPanel flipnote={playerNote} />
           )}
-          { activeConverter === 'images' && (
-            <ImagePanel flipnote={ playerNote }/>
+          {activeConverter === 'images' && (
+            <ImagePanel flipnote={playerNote} />
           )}
         </div>
       </div>

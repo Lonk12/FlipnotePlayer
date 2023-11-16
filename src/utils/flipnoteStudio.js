@@ -18,12 +18,15 @@ export default class flipnoteStudio {
       case '1':
         return 'Japan';
         break;
+
       case '5':
         return 'America';
         break;
+
       case '9':
         return 'Europe';
         break;
+
       default:
         return '???';
         break;
@@ -44,5 +47,4 @@ export default class flipnoteStudio {
         return `/private/Nintendo 3DS/app/${CTR_REGION_FOLDERS[region.toLowerCase()]}/`;
     }
   }
-
 }

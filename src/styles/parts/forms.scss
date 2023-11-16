@@ -46,34 +46,26 @@
   border-radius: 4px;
   background: #fff;
   border: 1px solid #efefef;
-  @include theme((color: 'text',
-      background: 'background-light',
-      border-color: 'background-lighter'
-    ));
+  @include theme((color: 'text', background: 'background-light', border-color: 'background-lighter'));
 
   &::-webkit-input-placeholder {
-    @include theme((color: 'text-invert',
-      ));
+    @include theme((color: 'text-invert'));
   }
 
   &::-moz-placeholder {
-    @include theme((color: 'text-invert',
-      ));
+    @include theme((color: 'text-invert'));
   }
 
   &:-ms-input-placeholder {
-    @include theme((color: 'text-invert',
-      ));
+    @include theme((color: 'text-invert'));
   }
 
   &:-moz-placeholder {
-    @include theme((color: 'text-invert',
-      ));
+    @include theme((color: 'text-invert'));
   }
 
   &::placeholder {
-    @include theme((color: 'text-invert',
-      ));
+    @include theme((color: 'text-invert'));
   }
 }
 
@@ -95,8 +87,5 @@
   background-position: right .7em top 50%, 0 0;
   background-size: .65em auto, 100%;
 
-  @include theme((color: 'text',
-      background-color: 'background-light',
-      border-color: 'background-lighter'
-    ));
+  @include theme((color: 'text', background-color: 'background-light', border-color: 'background-lighter'));
 }

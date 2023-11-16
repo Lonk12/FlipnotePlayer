@@ -35,7 +35,7 @@ export default function Icon(props) {
   const IconSvg = svgs[icon];
   return (
     <div className={`${className} Icon Icon--${icon} ${disabled ? 'Icon--disabled' : ''} ${spin ? 'Icon--spin' : ''}`} {...innerProps}>
-      { IconSvg && <IconSvg/> }
+      {IconSvg && <IconSvg />}
     </div>
   )
 }

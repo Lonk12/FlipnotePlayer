@@ -5,11 +5,11 @@ import '@/styles/main.scss';
 
 export default ({ page, children }) => (
   <div className="View">
-    <Header/>
-    <main className={`Page Page--${ page }`}>
-      { children }
+    <Header />
+    <main className={`Page Page--${page}`}>
+      {children}
     </main>
-    <Footer/>
-    <ErrorModal/>
+    <Footer />
+    <ErrorModal />
   </div>
 );

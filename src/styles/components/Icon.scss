@@ -44,20 +44,16 @@
   &.Icon--disabled svg,
   &.Icon--disabled svg:hover {
     & *[fill] {
-      @include theme((fill: "background-lighter",
-        ));
+      @include theme((fill: "background-lighter",));
     }
 
     & *[stroke] {
-      @include theme((stroke: "background-lighter",
-        ));
+      @include theme((stroke: "background-lighter",));
     }
-
   }
 
   &.Icon--spin svg {
     cursor: inherit;
     animation: spin 1s linear infinite;
   }
-
 }

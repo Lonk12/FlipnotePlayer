@@ -13,12 +13,12 @@ export default function SettingsMenu({ isVisible, onHide, children }) {
 
   return (
     <CSSTransition
-      in={ isVisible }
-      timeout={ 150 }
+      in={isVisible}
+      timeout={150}
       unmountOnExit
     >
-      <div ref={ root } className="SettingsMenu">  
-        { children }
+      <div ref={root} className="SettingsMenu">
+        {children}
       </div>
     </CSSTransition>
   );
@@ -26,5 +26,5 @@ export default function SettingsMenu({ isVisible, onHide, children }) {
 
 SettingsMenu.defaultProps = {
   isVisible: false,
-  onHide: function(){},
+  onHide: function () { },
 }

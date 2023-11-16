@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 export default function GifPanel({ flipnote }) {
 
-  const [filename, setFilename] = useState(`${ flipnote.meta.current.filename }.gif`);
+  const [filename, setFilename] = useState(`${flipnote.meta.current.filename}.gif`);
 
   function convert(flipnote) {
     import('@/converters/gif')
@@ -17,7 +17,7 @@ export default function GifPanel({ flipnote }) {
         return gif.convert(flipnote);
       })
       .then(gif => {
-        gif.saveAs(`${ flipnote.meta.current.filename }.gif`);
+        gif.saveAs(`${flipnote.meta.current.filename}.gif`);
       });
   }
 
@@ -26,17 +26,17 @@ export default function GifPanel({ flipnote }) {
       <div className="FormGroup">
         <div className="FormItem FormItem--flex3">
           <label htmlFor="filename">Output Filename</label>
-          <input 
+          <input
             className="Input"
             id="filename"
             type="text"
             placeholder="Video Filename"
-            value={ filename } 
-            onChange={ (e) => { setFilename(e.target.value)} }
+            value={filename}
+            onChange={(e) => { setFilename(e.target.value) }}
           />
         </div>
         <div className="FormItem">
-          <div className="Button Button--inline" onClick={ () => { convert(flipnote) } }>Convert</div>
+          <div className="Button Button--inline" onClick={() => { convert(flipnote) }}>Convert</div>
         </div>
       </div>
     </div>

@@ -14,9 +14,7 @@
 .ModalBackdrop.ModalBackdrop--visible {}
 
 .Modal {
-  @include theme((background: 'background-light',
-      color: 'text'
-    ));
+  @include theme((background: 'background-light', color: 'text'));
   min-width: 320px;
   width: 390px;
   border-radius: 12px;

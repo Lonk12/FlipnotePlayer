@@ -18,7 +18,7 @@
   background: rgb(255, 222, 227);
   color: rgb(211, 65, 72);
   padding: 12px;
-  font-size: .95em;
+  font-size: 0.95em;
 }
 
 .ProgressMeter {
@@ -82,8 +82,8 @@
   position: absolute;
   height: 5px;
   border-radius: 6px;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
   background: $primary-color;
 }
 
@@ -91,8 +91,7 @@
   opacity: 0;
 }
 
-.ProgressBar.enter-active,
-.ProgressBar.enter-done {
+.ProgressBar.enter-active, .ProgressBar.enter-done {
   opacity: 1;
 }
 
@@ -100,7 +99,6 @@
   opacity: 1;
 }
 
-.ProgressBar.exit-active,
-.ProgressBar.exit-done {
+.ProgressBar.exit-active, .ProgressBar.exit-done {
   opacity: 0;
 }

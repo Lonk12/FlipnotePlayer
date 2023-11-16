@@ -34,7 +34,8 @@ export default function FlipnotePlayer(props) {
   const togglePlay = () => {
     if (player.paused) {
       player.play();
-    } else {
+    }
+    else {
       player.pause();
     }
     setPaused(player.paused);
@@ -43,7 +44,7 @@ export default function FlipnotePlayer(props) {
   const toggleLayer = layerIndex => {
     let isVisible = !layerVisibility[layerIndex];
     player.setLayerVisibility(layerIndex, isVisible);
-    setLayerVisibility({...layerVisibility, [layerIndex]: isVisible});
+    setLayerVisibility({ ...layerVisibility, [layerIndex]: isVisible });
   }
 
   useLayoutEffect(() => {
@@ -119,14 +120,14 @@ export default function FlipnotePlayer(props) {
         </div>
         <div className="Player__canvas" ref={canvasWrapper}>
         </div>
-        <FrameCounter 
+        <FrameCounter
           isVisible={showFrameCounter}
           current={currentFrame + 1}
           total={frameCount}
         />
         <SettingsMenu
           isVisible={showSettingsMenu}
-          onHide={e => setShowSettingsMenu(false) }
+          onHide={e => setShowSettingsMenu(false)}
         >
           <SettingsMenuItem
             label="Loop"
@@ -149,7 +150,7 @@ export default function FlipnotePlayer(props) {
             value={layerVisibility[2]}
             onChange={() => toggleLayer(2)}
           />
-          { type === 'KWZ' &&
+          {type === 'KWZ' &&
             <SettingsMenuItem
               label="Show Layer 3"
               value={layerVisibility[3]}
@@ -165,7 +166,7 @@ export default function FlipnotePlayer(props) {
           max={100}
           step={.1}
           value={currentProgress}
-          onChange={value => { player.progress = value; setCurrentProgress(value)}}
+          onChange={value => { player.progress = value; setCurrentProgress(value) }}
           onBeforeChange={() => { if (!paused) { player.wasPlaying = true; player.pause(); } }}
           onAfterChange={() => { if (player.wasPlaying) { player.wasPlaying = false; player.play(); } }}
         />
@@ -173,13 +174,13 @@ export default function FlipnotePlayer(props) {
       <div className="Player__controls">
         <div className="ControlsGroup ControlsGroup--left">
           <Icon icon={paused ? 'play' : 'pause'} onClick={e => { togglePlay() }}></Icon>
-          <Icon icon="settings" onClick={e => setShowSettingsMenu(!showSettingsMenu)}/>
+          <Icon icon="settings" onClick={e => setShowSettingsMenu(!showSettingsMenu)} />
         </div>
         <div className="ControlsGroup ControlsGroup--right">
-          <Icon icon="firstFrame" disabled={!paused} onClick={e => { if (paused) player.firstFrame()}}/>
-          <Icon icon="prevFrame" disabled={!paused} onClick={e => { if (paused) player.prevFrame()}}/>
-          <Icon icon="nextFrame" disabled={!paused} onClick={e => { if (paused) player.nextFrame()}}/>
-          <Icon icon="lastFrame" disabled={!paused} onClick={(e) => { if (paused) player.lastFrame()}}/>
+          <Icon icon="firstFrame" disabled={!paused} onClick={e => { if (paused) player.firstFrame() }} />
+          <Icon icon="prevFrame" disabled={!paused} onClick={e => { if (paused) player.prevFrame() }} />
+          <Icon icon="nextFrame" disabled={!paused} onClick={e => { if (paused) player.nextFrame() }} />
+          <Icon icon="lastFrame" disabled={!paused} onClick={(e) => { if (paused) player.lastFrame() }} />
         </div>
       </div>
     </div>

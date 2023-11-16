@@ -8,18 +8,18 @@ const SettingsMenuItem = props => {
 
   switch (props.type) {
     case 'slider':
-      inputElement = (<Slider {...props} className="SettingsMenuItem__slider"/>);
+      inputElement = (<Slider {...props} className="SettingsMenuItem__slider" />);
       break;
     case 'switch':
     default:
-      inputElement = (<Switch on={ props.value } onClick={ props.onChange }/>);
+      inputElement = (<Switch on={props.value} onClick={props.onChange} />);
       break;
   }
 
   return (
     <div className="SettingsMenuItem">
-      <span className="SettingsMenuItem__label">{ props.label }</span>
-      <div className="SettingsMenuItem__input">{ inputElement }</div>
+      <span className="SettingsMenuItem__label">{props.label}</span>
+      <div className="SettingsMenuItem__input">{inputElement}</div>
     </div>
   );
 }

@@ -7,5 +7,5 @@ export default class format {
     var exp = Math.floor(Math.log(bytes) / Math.log(k));
     return (bytes / Math.pow(k, exp)).toFixed(1) + ' ' + sizes[exp];
   }
-
+  
 }

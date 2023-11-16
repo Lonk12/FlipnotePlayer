@@ -5,6 +5,7 @@ import { GlobalStore } from '@/store';
 import ThemeToggle from '@/components/ThemeToggle';
 import Icon from '@/components/Icon';
 import Logo from '@/svg/logo.svg';
+import process from 'process';
 import '@/styles/components/Header.scss';
 
 export default () => {
@@ -14,22 +15,22 @@ export default () => {
     <header className="Header">
       <div className="Header__group Header__group--left">
         <Link to="/">
-          <Logo className="Header__logo"/>
+          <Logo className="Header__logo" />
         </Link>
         <Link to="/" className="Header__title">
           <h1>Flipnote Player</h1>
-          <h2 className="Header__subtitle">Version { process.env.__VERSION__ }</h2>
+          <h2 className="Header__subtitle">Version {process.env.__VERSION__}</h2>
         </Link>
         <CSSTransition
-          in={ isLoading }
+          in={isLoading}
           timeout={200}
           unmountOnExit
         >
-          <Icon className="Header__loadIndicator" icon="loader" spin={ true }/>
+          <Icon className="Header__loadIndicator" icon="loader" spin={true} />
         </CSSTransition>
       </div>
       <div className="Header__group Header__group--right">
-        <ThemeToggle/>
+        <ThemeToggle />
       </div>
     </header>
   )

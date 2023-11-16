@@ -7,9 +7,9 @@ export default function Switch(props) {
     props.disabled ? 'Switch--disabled' : '',
     props.className
   ].filter(cls => cls).join(' ');
-  
+
   return (
-    <div className={ className } onClick={ props.onClick }>
+    <div className={className} onClick={props.onClick}>
       <div className="Switch__toggle"></div>
     </div>
   );
@@ -19,5 +19,5 @@ Switch.defaultProps = {
   on: false,
   disabled: false,
   className: '',
-  onClick: function(){}
+  onClick: function () { }
 };
