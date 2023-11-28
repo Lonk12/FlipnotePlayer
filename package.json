@@ -43,7 +43,7 @@
     "minipass-flush": "^1.0.5",
     "minipass-pipeline": "^1.2.4",
     "nice-try": "^1.0.5",
-    "node-sass": "^4.14.1",
+    "node-sass": "^9.0.0",
     "parent-module": "^1.0.1",
     "picomatch": "^2.2.3",
     "poi": "^12.10.3",
